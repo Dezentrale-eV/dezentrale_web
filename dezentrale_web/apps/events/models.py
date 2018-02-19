@@ -9,7 +9,7 @@ class EventsIndexPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('intro', classname="full")
     ]
-
+    parent_page_types = ['wagtailcore.Page']
 
 class EventPage(Page):
     start = models.DateTimeField()
@@ -21,3 +21,5 @@ class EventPage(Page):
         FieldPanel('intro'),
         FieldPanel('description'),
     ]
+    parent_page_types = ['EventsIndexPage']
+

@@ -1,14 +1,8 @@
-{% include 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-{{ page.title }}
-
-FOOBAR crazy shit
-
-<p>
-{{ page.start }}
-</p>
-
-alles scheisse
-
+  {{ page.title }}
+  <p>
+  {{ page.start }}
+  </p>
 {% endblock content %}

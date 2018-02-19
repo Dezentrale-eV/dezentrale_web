@@ -1,5 +1,5 @@
 {% load static from staticfiles %}
-
+{% include 'event_page.html' %}
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -37,7 +37,9 @@
     </ul>
   </nav>
 
-  {% block content %}{% endblock content %}
+  {% block content %}
+
+  {% endblock content %}
 
   <footer id="footer">
     <div class="inner">
