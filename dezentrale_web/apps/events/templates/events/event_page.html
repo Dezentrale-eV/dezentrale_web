@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 {% block extra_head %}
-  <script>$('.parent-element').clndr({
+  <!-- <script>$('.parent-element').clndr({
     weekOffset: 1,
 
-  }); </script>
+  }); </script> -->
 {% endblock extra_head %}
 
 {% block content %}
-  {{ page.title }}
+<div class="inner" style="margin-top: 2rem;">
+  <h1 class="align-center">{{page.title}}</h1>
   <p>
   {{ page.start }}
   </p>
+</div>
 {% endblock content %}
