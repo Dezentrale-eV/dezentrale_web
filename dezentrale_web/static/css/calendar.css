@@ -81,6 +81,9 @@ body {font-family: Verdana, sans-serif;}
 }
 .calendar__week {
   grid-auto-rows: 100px;
+}
+
+.num {
   text-align: right;
 }
 
