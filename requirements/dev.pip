@@ -20,3 +20,4 @@ isort==4.2.5
 pdbpp==0.8.3  # rq.filter: !=0.8.2
 pg-activity==1.3.0
 sqlparse==0.2.1
+-e git://github.com/linuxsoftware/ls.joyous.git#egg=ls.joyous

@@ -135,7 +135,8 @@ class Common(Configuration):
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': [os.path.join(BaseDir.BASE_DIR, 'templates'), ],
+            'DIRS': [os.path.join(BaseDir.BASE_DIR, 'templates'),
+                     os.path.join(BaseDir.BASE_DIR, 'apps/events/templates/events')],
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
@@ -185,6 +186,8 @@ class Common(Configuration):
         'dezentrale_web.apps.wagtail_search',
         'dezentrale_web.apps.blog.apps.BlogConfig',
         'dezentrale_web.apps.events.apps.EventsConfig',
+        'ls.joyous',
+        'wagtail.contrib.modeladmin',
         # Wagtail
         'wagtail.wagtailforms',
         'wagtail.wagtailredirects',
@@ -234,3 +237,7 @@ class Common(Configuration):
 
     # Wagtail settings
     WAGTAIL_SITE_NAME = "dezentrale.space"
+
+    JOYOUS_DAY_OF_WEEK_START = "Monday"
+
+    JOYOUS_DEFAULT_EVENTS_VIEW = "Monthly"
