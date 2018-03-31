@@ -29,3 +29,11 @@ class DokumentePage(Page):
     ])
     content_panels = Page.content_panels + [
         StreamFieldPanel('content')]
+
+
+class ImpressumPage(Page):
+    content = StreamField([
+        ('Used', blocks.RichTextBlock())
+    ])
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('content')]

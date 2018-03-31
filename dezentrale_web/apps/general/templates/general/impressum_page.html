@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
+{% load wagtailcore_tags %}
 {% block content %}
 <section id="one" class="wrapper">
     <div class="align-center">
-        <h1>Impressum</h1>
+        <h1>{{page.title}}</h1>
         <h2>dezentrale e.V.</h2>
     </div>
     <div class="inner flex flex-3">
@@ -33,7 +34,10 @@
         </div>
     </div>
     <div class="inner">
-        <h4>Created with: Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome</h4>
+      <h4>Created with: </h4>
+      {% for block in page.content %}
+        <p>{{block.value}}</p>
+      {% endfor %}
     </div>
 </section>
 {% endblock content %}
