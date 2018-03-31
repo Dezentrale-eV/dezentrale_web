@@ -1,8 +1,7 @@
 from django.db import models
+from ls.joyous.models import CalendarPage
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore import hooks
-from ls.joyous.models import CalendarPage
 
 
 class EventPage(Page):

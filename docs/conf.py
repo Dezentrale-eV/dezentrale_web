@@ -14,6 +14,7 @@
 import os
 
 import alabaster
+from configurations import importer
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -301,6 +302,4 @@ autodoc_default_flags = ['members', 'undoc-members']
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dezentrale_web.config.settings.dev')
 os.environ.setdefault('DJANGO_CONFIGURATION', 'Development')
 
-from configurations import importer
 importer.install()
-

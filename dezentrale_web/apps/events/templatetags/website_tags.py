@@ -1,10 +1,8 @@
-from datetime import date
 from collections import namedtuple
+
 from django import template
 from django.conf import settings
-from django.template.loader import render_to_string
-#from website.models import WebImage
-from wagtail.core.models import Site, Page
+from wagtail.core.models import Page, Site
 
 register = template.Library()
 
@@ -13,6 +11,7 @@ register = template.Library()
 @register.simple_tag
 def get_google_maps_key():
     return getattr(settings, 'GOOGLE_MAPS_KEY', "")
+
 
 @register.simple_tag(takes_context=True)
 def get_default_site(context):
@@ -23,9 +22,11 @@ def get_default_site(context):
         default = context.request.site
     return default
 
+
 @register.simple_tag
 def get_by_url_path(x):
     return Page.objects.filter(url_path=x).live().public().first()
+
 
 @register.simple_tag
 def get_by_slug(x):
@@ -80,6 +81,8 @@ def website_menu(context):
 
 # Retrieves all live pages which are children of the calling page
 # for standard index listing
+
+
 @register.inclusion_tag('events/event_page.html', takes_context=True)
 def standard_index_listing(context, calling_page):
     pages = calling_page.get_children().live().public()
