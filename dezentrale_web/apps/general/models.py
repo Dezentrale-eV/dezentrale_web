@@ -1,6 +1,8 @@
 from django.db import models
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.wagtailcore.fields import StreamField
+from wagtail.wagtailcore import blocks
 
 class GiroPage(Page):
     content = models.TextField()
@@ -9,3 +11,11 @@ class GiroPage(Page):
     ]
 
 
+class InfrastrukturPage(Page):
+    content = StreamField([
+        ('heading', blocks.CharBlock(classname="full title")),
+        ('paragraph', blocks.RichTextBlock()),
+    ])
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('content')]
