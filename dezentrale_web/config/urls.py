@@ -17,8 +17,6 @@ urlpatterns = [
         template_name='infrastruktur.html'), name='infrastruktur'),
     url(r'^dokumente/', generic_views.TemplateView.as_view(template_name='dokumente.html'),
         name='dokumente'),
-    url(r'^girokonto/', generic_views.TemplateView.as_view(template_name='giro.html'),
-        name='giro'),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^django-admin/', include(admin.site.urls)),
     # Wagtail
