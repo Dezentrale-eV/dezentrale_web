@@ -13,8 +13,6 @@ urlpatterns = [
         name='landing_page'),
     url(r'^impressum/', generic_views.TemplateView.as_view(template_name='impressum.html'),
         name='impressum'),
-    url(r'^dokumente/', generic_views.TemplateView.as_view(template_name='dokumente.html'),
-        name='dokumente'),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^django-admin/', include(admin.site.urls)),
     # Wagtail

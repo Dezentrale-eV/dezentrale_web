@@ -19,3 +19,13 @@ class InfrastrukturPage(Page):
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('content')]
+
+
+class DokumentePage(Page):
+    content = StreamField([
+        ('Mitgliedsantrag', blocks.RichTextBlock()),
+        ('Misc', blocks.RichTextBlock()),
+        ('Protokoll', blocks.RichTextBlock())
+    ])
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('content')]
