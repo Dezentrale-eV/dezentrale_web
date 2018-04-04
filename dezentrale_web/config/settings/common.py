@@ -136,7 +136,7 @@ class Common(Configuration):
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
             'DIRS': [os.path.join(BaseDir.BASE_DIR, 'templates'),
-                     os.path.join(BaseDir.BASE_DIR, 'apps/general/templates/general'),],
+                     os.path.join(BaseDir.BASE_DIR, 'apps/general/templates/general')],
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
