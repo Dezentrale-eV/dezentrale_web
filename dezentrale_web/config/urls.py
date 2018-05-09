@@ -11,14 +11,6 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 urlpatterns = [
     url(r'^$', generic_views.TemplateView.as_view(template_name='landing_page.html'),
         name='landing_page'),
-    url(r'^impressum/', generic_views.TemplateView.as_view(template_name='impressum.html'),
-        name='impressum'),
-    url(r'^infrastruktur/', generic_views.TemplateView.as_view(
-        template_name='infrastruktur.html'), name='infrastruktur'),
-    url(r'^dokumente/', generic_views.TemplateView.as_view(template_name='dokumente.html'),
-        name='dokumente'),
-    url(r'^girokonto/', generic_views.TemplateView.as_view(template_name='giro.html'),
-        name='giro'),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^django-admin/', include(admin.site.urls)),
     # Wagtail
