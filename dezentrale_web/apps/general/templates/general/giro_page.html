@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+<section id="one" class="wrapper">
+    <div class="align-center">
+        <h1>{{ page.title }}</h1>
+    </div>
+    <div class="align-center">
+        <pre>{{ page.content }}
+        </pre>
+    </div>
+</section>
+{% endblock content %}
+

@@ -137,6 +137,7 @@ class Common(Configuration):
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
             'DIRS': [os.path.join(BaseDir.BASE_DIR, 'templates'),
                      os.path.join(BaseDir.BASE_DIR, 'apps/events/templates/events')],
+                     os.path.join(BaseDir.BASE_DIR, 'apps/general/templates/general')],
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
@@ -188,6 +189,7 @@ class Common(Configuration):
         'dezentrale_web.apps.events.apps.EventsConfig',
         'ls.joyous',
         'wagtail.contrib.modeladmin',
+        'dezentrale_web.apps.general.apps.GeneralConfig',
         # Wagtail
         'wagtail.wagtailforms',
         'wagtail.wagtailredirects',

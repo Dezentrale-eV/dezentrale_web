@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<section id="one" class="wrapper">
+    <div class="align-center">
+        <h1>{{page.title}}</h1>
+    </div>
+    <div class="inner">
+        <div class="6u 12u$(small)">
+            <ul>
+              {% for block in page.content %}
+                {% if block.block_type == 'Mitgliedsantrag' %}
+                  <li>{{block.value}}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          <hr/>
+          <ul>
+              {% for block in page.content %}
+                {% if block.block_type == 'Misc' %}
+                  <li>{{block.value}}</li>
+                {% endif %}
+            {% endfor %}
+          </ul>
+          <hr/>
+          <ul>
+            {% for block in page.content %}
+              {% if block.block_type == 'Protokoll' %}
+                  <li>{{block.value}}</li>
+                {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
