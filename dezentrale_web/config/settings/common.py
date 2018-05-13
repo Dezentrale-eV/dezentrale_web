@@ -136,7 +136,7 @@ class Common(Configuration):
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
             'DIRS': [os.path.join(BaseDir.BASE_DIR, 'templates'),
-                     os.path.join(BaseDir.BASE_DIR, 'apps/events/templates/events')],
+                     os.path.join(BaseDir.BASE_DIR, 'apps/events/templates/events'),
                      os.path.join(BaseDir.BASE_DIR, 'apps/general/templates/general')],
             'APP_DIRS': True,
             'OPTIONS': {
@@ -161,85 +161,84 @@ class Common(Configuration):
         },
     ]
 
-    # the following line is only necessary because django-template-debug uses it
-    TEMPLATE_DEBUG = TEMPLATES[0]['OPTIONS'].get('debug', False)
+# the following line is only necessary because django-template-debug uses it
+TEMPLATE_DEBUG = TEMPLATES[0]['OPTIONS'].get('debug', False)
 
-    FIXTURE_DIRS = (
-        os.path.join(BaseDir.BASE_DIR, 'fixtures'),
-    )
+FIXTURE_DIRS = (
+    os.path.join(BaseDir.BASE_DIR, 'fixtures'),
+)
 
-    MIDDLEWARE = [
-        'django.contrib.sessions.middleware.SessionMiddleware',
-        'django.middleware.common.CommonMiddleware',
-        'django.middleware.csrf.CsrfViewMiddleware',
-        'django.contrib.auth.middleware.AuthenticationMiddleware',
-        'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-        'django.contrib.messages.middleware.MessageMiddleware',
-        'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'django.middleware.security.SecurityMiddleware',
+MIDDLEWARE = [
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 
-        'wagtail.wagtailcore.middleware.SiteMiddleware',
-        'wagtail.wagtailredirects.middleware.RedirectMiddleware',
-    ]
+    'wagtail.wagtailcore.middleware.SiteMiddleware',
+    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+]
 
-    INSTALLED_APPS = (
-        # Custom
-        'dezentrale_web.apps.wagtail_search',
-        'dezentrale_web.apps.blog.apps.BlogConfig',
-        'dezentrale_web.apps.events.apps.EventsConfig',
-        'ls.joyous',
-        'wagtail.contrib.modeladmin',
-        'dezentrale_web.apps.general.apps.GeneralConfig',
-        # Wagtail
-        'wagtail.wagtailforms',
-        'wagtail.wagtailredirects',
-        'wagtail.wagtailembeds',
-        'wagtail.wagtailsites',
-        'wagtail.wagtailusers',
-        'wagtail.wagtailsnippets',
-        'wagtail.wagtaildocs',
-        'wagtail.wagtailimages',
-        'wagtail.wagtailsearch',
-        'wagtail.wagtailadmin',
-        'wagtail.wagtailcore',
+INSTALLED_APPS = (
+    # Custom
+    'dezentrale_web.apps.wagtail_search',
+    'dezentrale_web.apps.blog.apps.BlogConfig',
+    'dezentrale_web.apps.events.apps.EventsConfig',
+    'ls.joyous',
+    'wagtail.contrib.modeladmin',
+    'dezentrale_web.apps.general.apps.GeneralConfig',
+    # Wagtail
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
 
-        'modelcluster',
-        'taggit',
+    'modelcluster',
+    'taggit',
+    # Regular Django
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'grappelli',  # grappelli must be listed before django.contrib.admin!
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+    'crispy_forms',
+    'rules.apps.AutodiscoverRulesConfig',
 
-        # Regular Django
-        'django.contrib.auth',
-        'django.contrib.contenttypes',
-        'django.contrib.sessions',
-        'django.contrib.sites',
-        'django.contrib.messages',
-        'django.contrib.staticfiles',
-        'grappelli',  # grappelli must be listed before django.contrib.admin!
-        'django.contrib.admin',
-        'django.contrib.admindocs',
-        'crispy_forms',
-        'rules.apps.AutodiscoverRulesConfig',
+)
 
-    )
+CACHES = values. DictValue({
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+})
 
-    CACHES = values. DictValue({
-        'default': {
-            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        }
-    })
+CRISPY_TEMPLATE_PACK = values.Value('bootstrap3')
 
-    CRISPY_TEMPLATE_PACK = values.Value('bootstrap3')
+GRAPPELLI_ADMIN_TITLE = 'Dezentrale Admin'
 
-    GRAPPELLI_ADMIN_TITLE = 'Dezentrale Admin'
+EMAIL_SUBJECT_PREFIX = '[Dezentrale]'
 
-    EMAIL_SUBJECT_PREFIX = '[Dezentrale]'
+DEFAULT_FROM_EMAIL = values.EmailValue('wladi.schneider13@googlemail.com')
 
-    DEFAULT_FROM_EMAIL = values.EmailValue('wladi.schneider13@googlemail.com')
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
-    SERVER_EMAIL = DEFAULT_FROM_EMAIL
+# Wagtail settings
+WAGTAIL_SITE_NAME = "dezentrale.space"
 
-    # Wagtail settings
-    WAGTAIL_SITE_NAME = "dezentrale.space"
+JOYOUS_DAY_OF_WEEK_START = "Monday"
 
-    JOYOUS_DAY_OF_WEEK_START = "Monday"
-
-    JOYOUS_DEFAULT_EVENTS_VIEW = "Monthly"
+JOYOUS_DEFAULT_EVENTS_VIEW = "Monthly"
